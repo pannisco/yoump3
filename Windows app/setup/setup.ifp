@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<InstallForgeProject>
+  <Metadata productVersion="1.5.0" projectFileVersion="2.0"/>
+  <ProductInformation>
+    <Name>youMP3</Name>
+    <Version>1.0.1</Version>
+    <CompanyName>Pannisco Software</CompanyName>
+    <WebURI>https://github.com/pannisco/yoump3</WebURI>
+  </ProductInformation>
+  <InstallerConfiguration>
+    <Prerequisites>
+      <OperatingSystem check="true">
+        <WindowsXP>false</WindowsXP>
+        <WindowsServer2003>true</WindowsServer2003>
+        <WindowsVista>false</WindowsVista>
+        <WindowsServer2008>true</WindowsServer2008>
+        <Windows7>true</Windows7>
+        <Windows8>true</Windows8>
+        <Windows10>true</Windows10>
+        <WindowsServer2016>true</WindowsServer2016>
+        <WindowsServer2019>true</WindowsServer2019>
+        <WindowsServer2022>true</WindowsServer2022>
+        <Windows11>true</Windows11>
+      </OperatingSystem>
+    </Prerequisites>
+    <UserInterface>
+      <WizardImage filePath="C:\Program Files (x86)\solicus\InstallForge\images\Wizard_1.bmp"/>
+      <HeaderImage filePath="C:\Users\peppe\Desktop\icon-install.bmp"/>
+      <Label isEnabled="true"/>
+      <VisualStyle isEnabled="true"/>
+    </UserInterface>
+    <InstallationFiles defaultInstallationPath="&lt;ProgramFiles&gt;\&lt;Company&gt;\&lt;AppName&gt;\" isDefaultInstallationPathAlterable ="true">
+      <InstallationFile size="N/A" type="[Folder]">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\_internal</InstallationFile>
+      <InstallationFile size="N/A" type="[Folder]">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\ffmpeg</InstallationFile>
+      <InstallationFile size="N/A" type="[Folder]">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\runtimes</InstallationFile>
+      <InstallationFile size="410 Byte" type="json">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.deps.json</InstallationFile>
+      <InstallationFile size="191.5 KB" type="dll">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.dll</InstallationFile>
+      <InstallationFile size="1.5 KB" type="config">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.dll.config</InstallationFile>
+      <InstallationFile size="213 KB" type="exe">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.exe</InstallationFile>
+      <InstallationFile size="443 Byte" type="json">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.runtimeconfig.json</InstallationFile>
+      <InstallationFile size="17.5 MB" type="exe">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yt-dlp.exe</InstallationFile>
+      <InstallationFile size="13 KB" type="xpi">C:\Users\peppe\Desktop\357786bc4d0c40a5bf4d-1.0.xpi</InstallationFile>
+    </InstallationFiles>
+    <Languages>
+      <Language>English</Language>
+    </Languages>
+    <Variables/>
+    <Commands>
+      <Command type="Shell Execute" command="reg add &quot;HKEY_CLASSES_ROOT\yoump3&quot; /ve /d &quot;URL:YouMP3 Protocol&quot; /f" commandLineArguments="" options=""/>
+      <Command type="Shell Execute" command="reg add &quot;HKEY_CLASSES_ROOT\yoump3&quot; /v &quot;URL Protocol&quot; /d &quot;&quot; /f" commandLineArguments="" options=""/>
+      <Command type="Shell Execute" command="reg add &quot;HKEY_CLASSES_ROOT\yoump3\shell\open\command&quot; /ve /d &quot;\&quot;C:\\Program Files (x86)\\Pannisco Software\\YouMP3\\yoump3.exe\&quot; \&quot;%1\&quot;&quot; /f" commandLineArguments="" options=""/>
+    </Commands>
+    <Registry>
+      <Entry rootKey="HKEY_CLASSES_ROOT" subKey="yoump3" valueName="" valueData="" isRemoveWhenUninstalling="true"/>
+    </Registry>
+    <Shortcuts defaultPath="&lt;Company&gt;\&lt;AppName&gt;\" isDefaultPathAlterable="true" isCreateStartmenuShortcutsForAllUsers="true" isCreateDesktopShortcutsForAllUsers="true">
+      <Shortcut destination="Desktop" name="YouMP3" targetFile="&lt;InstallPath&gt;\yoump3.exe" commandLineArguments="" iconFilePath="&lt;InstallPath&gt;\yoump3.exe" iconIndex="0"/>
+    </Shortcuts>
+    <Serials isDialogEnabled="false" count="1000" mask ="#####-#####-#####-#####"/>
+    <SplashScreen isDialogEnabled="false" delayTime="2">
+      <Image filePath=""/>
+      <Sound isEnabled="false" filePath=""/>
+    </SplashScreen>
+    <License isDialogEnabled="false">
+      <Data>e1xydGYxXGFuc2lcYW5zaWNwZzEyNTJcZGVmZjBcbm91aWNvbXBhdFxkZWZsYW5nMTAzM3tcZm9udHRibHtcZjBcZm5pbCBBcmlhbDt9fQ0Ke1wqXGdlbmVyYXRvciBSaWNoZWQyMCAxMC4wLjE5MDQxfVx2aWV3a2luZDRcdWMxIA0KXHBhcmRcZjBcZnMyMFxwYXINCn0NCgA=</Data>
+    </License>
+    <Finish isRebootMachineEnabled="true">
+      <Program executableFilePath="&lt;InstallPath&gt;\yoump3.exe" isLaunchEnabled="false" arguments=""/>
+    </Finish>
+  </InstallerConfiguration>
+  <UninstallerConfiguration isPackaged="true">
+    <UninstallerExecutableFileName>Uninstall</UninstallerExecutableFileName>
+    <OpenWebURIAfterUninstallation isEnabled="true">https://github.com/pannisco/yoump3</OpenWebURIAfterUninstallation>
+    <CustomDisplayIcon isEnabled="false" iconFilePath="&lt;InstallPath&gt;\"/>
+  </UninstallerConfiguration>
+  <VisualUpdateConfiguration isPackaged="false">
+    <ProductName>&lt;AppName&gt;</ProductName>
+    <ProductVersion>&lt;AppVersion&gt;</ProductVersion>
+    <Language>0</Language>
+    <UpdateScriptURIs>
+      <MainURI>https://</MainURI>
+      <FirstMirrorURI>https://</FirstMirrorURI>
+      <SecondMirrorURI>https://</SecondMirrorURI>
+    </UpdateScriptURIs>
+    <updateExecutableFileName>Update</updateExecutableFileName>
+    <proEditionLicenseKey/>
+    <Program executableFilePath="" isLaunchEnabled="false" isTerminationEnabled="false"/>
+  </VisualUpdateConfiguration>
+  <BuildConfiguration>
+    <SetupFilePath>C:\Users\peppe\Desktop\yousetup.exe</SetupFilePath>
+    <SetupIconPath>C:\Users\peppe\Desktop\icon-install.ico</SetupIconPath>
+    <UninstallerIconPath>C:\Users\peppe\Desktop\icon-install.ico</UninstallerIconPath>
+    <Compression method="0" level="2"/>
+    <CodeSigning isEnabled="false" signToolCommandLine="/n &quot;Subject&quot; /tr http://timestamp.digicert.com /td sha256 /fd sha256 &quot;&lt;ExecutableFilePath&gt;&quot;"/>
+  </BuildConfiguration>
+</InstallForgeProject>

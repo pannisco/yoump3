@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\yoump3]
+@="URL:YouMP3 Protocol"
+"URL Protocol"=""
+
+[HKEY_CLASSES_ROOT\yoump3\shell]
+
+[HKEY_CLASSES_ROOT\yoump3\shell\open]
+
+[HKEY_CLASSES_ROOT\yoump3\shell\open\command]
+@="\"C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\bin\\Debug\\net8.0-windows\\yoump3.exe\" \"%1\""

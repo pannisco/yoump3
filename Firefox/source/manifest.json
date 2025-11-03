@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "YouMP3",
+  "version": "1.0",
+  "description": "Download music directly from the browser",
+  "permissions": [
+    "tabs",
+    "*://www.youtube.com/*"
+  ],
+  "browser_action": {
+    "default_title": "YouMP3",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+}
