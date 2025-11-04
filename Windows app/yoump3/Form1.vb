@@ -10,7 +10,7 @@ Public Class Form1
     Private temp As Boolean = True
     Private temp01 As Boolean = True
     Private temp02 As Boolean = True
-    Private Const appversion As String = "1.0.1"
+    Private Const appversion As String = "1.1"
     Private Const updateurl As String = "https://raw.githubusercontent.com/pannisco/yoump3/refs/heads/main/update.xml"
     Private Async Sub Form1_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Dim args() As String = Environment.GetCommandLineArgs()
@@ -18,7 +18,7 @@ Public Class Form1
             Dim rawArg As String = args(1)
             TextBox1.Text = Uri.UnescapeDataString(rawArg.Replace("yoump3:", ""))
             If TextBox2.Text = "" Or TextBox2.Text = "Download Path" Then
-                MessageBox.Show("Please enter a download path or enable option save in settings.")
+                MessageBox.Show("Please enter a download path or enable option save in settings.", "YouMP3", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 download()
             End If
@@ -277,6 +277,7 @@ Public Class Form1
         temp = True
         temp01 = True
         Label4.Text = "0/0"
+        MessageBox.Show("Download completed!", "YouMP3", MessageBoxButtons.OK, MessageBoxIcon.Information)
         If My.Settings.ac = True Then
             Application.Exit()
         End If
@@ -351,6 +352,22 @@ Public Class Form1
             RichTextBox1.BackColor = Color.White
             GroupBox1.ForeColor = Color.Black
             GroupBox1.BackColor = Color.White
+        End If
+    End Sub
+
+    Private Sub RichTextBox1_TextChanged(sender As Object, e As EventArgs) Handles RichTextBox1.TextChanged
+        If RichTextBox1.Text.Contains("[youtube]") Then
+            ProgressBar1.Value = 15
+        ElseIf RichTextBox1.Text.Contains("[info]") Then
+            ProgressBar1.Value = 25
+        ElseIf RichTextBox1.Text.Contains("[download]") Then
+            ProgressBar1.Value = 50
+        ElseIf RichTextBox1.Text.Contains("[ExtractAudio]") Then
+            ProgressBar1.Value = 75
+        ElseIf RichTextBox1.Text.Contains("[Metadata]") Then
+            ProgressBar1.Value = 95
+        ElseIf RichTextBox1.Text.Contains("Download finished.") Then
+            ProgressBar1.Value = 0
         End If
     End Sub
 End Class

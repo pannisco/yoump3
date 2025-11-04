@@ -57,12 +57,13 @@ Partial Class settingspage
         ' Label1
         ' 
         Label1.AutoSize = True
+        Label1.FlatStyle = FlatStyle.Flat
         Label1.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         Label1.Location = New Point(12, 188)
         Label1.Name = "Label1"
-        Label1.Size = New Size(90, 20)
+        Label1.Size = New Size(79, 20)
         Label1.TabIndex = 2
-        Label1.Text = "Version 1.0.1"
+        Label1.Text = "Version 1.1"
         ' 
         ' CheckBox3
         ' 
@@ -98,6 +99,7 @@ Partial Class settingspage
         ' 
         ' Button1
         ' 
+        Button1.FlatStyle = FlatStyle.Flat
         Button1.Location = New Point(12, 156)
         Button1.Name = "Button1"
         Button1.Size = New Size(202, 29)
