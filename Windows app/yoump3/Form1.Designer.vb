@@ -94,6 +94,7 @@ Partial Class Form1
         Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), Image)
         Button2.BackgroundImageLayout = ImageLayout.Zoom
         Button2.Enabled = False
+        Button2.FlatStyle = FlatStyle.Flat
         Button2.Location = New Point(198, 45)
         Button2.Name = "Button2"
         Button2.Size = New Size(30, 27)
@@ -155,6 +156,7 @@ Partial Class Form1
         ' 
         Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), Image)
         Button3.BackgroundImageLayout = ImageLayout.Zoom
+        Button3.FlatStyle = FlatStyle.Flat
         Button3.Location = New Point(198, 12)
         Button3.Name = "Button3"
         Button3.Size = New Size(29, 27)

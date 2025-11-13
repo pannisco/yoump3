@@ -5,12 +5,12 @@ Imports System.Threading.Tasks
 Imports System.Xml
 Imports System.Net
 Imports System.Text.RegularExpressions
-
+Imports System.Drawing
 Public Class Form1
     Private temp As Boolean = True
     Private temp01 As Boolean = True
     Private temp02 As Boolean = True
-    Private Const appversion As String = "1.1"
+    Private Const appversion As String = "1.1.2"
     Private Const updateurl As String = "https://raw.githubusercontent.com/pannisco/yoump3/refs/heads/main/update.xml"
     Private Async Sub Form1_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Dim args() As String = Environment.GetCommandLineArgs()
@@ -42,24 +42,24 @@ Public Class Form1
             proc.WaitForExit()
             If output.ToLower().Contains("ffmpeg version") Then
                 Label1.Text = "ffmpeg installed."
-                Label1.ForeColor = Color.DarkGreen
+                Label1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#24562B")
             Else
                 Label1.Text = "ffmpeg not installed."
-                Label1.ForeColor = Color.DarkRed
+                Label1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#B2022F")
             End If
         Catch ex As Exception
             Label1.Text = "ffmpeg not installed."
-            Label1.ForeColor = Color.DarkRed
+            Label1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#B2022F")
         End Try
     End Function
 
     Private Async Function CheckYTDLPAsync() As Task
         If My.Settings.autoupdate = True Then
-            Label2.ForeColor = Color.DarkGoldenrod
+            Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F9C70C")
             Label2.Text = "Checking ytdlp..."
             Dim procpath = Path.Combine(Application.StartupPath, "yt-dlp.exe")
             If Not File.Exists(procpath) Then
-                Label2.ForeColor = Color.DarkRed
+                Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#B2022F")
                 Label2.Text = "ytdlp not accesible."
                 Return
             End If
@@ -73,23 +73,23 @@ Public Class Form1
             proc.Start()
             Dim output As String = proc.StandardOutput.ReadToEnd() & proc.StandardError.ReadToEnd()
             If output.Contains("up to date") Then
-                Label2.ForeColor = Color.DarkGreen
+                Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#24562B")
                 Label2.Text = "ytdlp is up to date."
                 Button1.Enabled = True
                 Button2.Enabled = True
             Else
-                Label2.ForeColor = Color.LightGoldenrodYellow
+                Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F9C70C")
                 Label2.Text = "Updating ytdlp, please whait..."
             End If
             proc.WaitForExit()
-            Label2.ForeColor = Color.DarkGreen
+            Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#24562B")
             Label2.Text = "Done!"
             Threading.Thread.Sleep(2000)
             Label2.Text = "ytdlp is up to date."
             Button1.Enabled = True
             Button2.Enabled = True
         Else
-            Label2.ForeColor = Color.DarkGoldenrod
+            Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F9C70C")
             Label2.Text = "Auto update disabled"
             Button1.Enabled = True
             Button2.Enabled = True
@@ -207,12 +207,10 @@ Public Class Form1
                                                          MessageBoxIcon.Information)
                 If result = DialogResult.Yes Then
                     Try
-                        Process.Start(New ProcessStartInfo With {
-        .FileName = updateLink,
-        .UseShellExecute = True
-    })
+                        Process.Start(Path.Combine(Application.StartupPath, "youpdater.exe"))
+                        End
                     Catch ex As Exception
-                        MessageBox.Show("Unable to open update link: " & ex.Message)
+                        MessageBox.Show("Unable to open update: " & ex.Message)
                     End Try
                     Application.Exit()
                     Return
@@ -257,7 +255,7 @@ Public Class Form1
         RichTextBox1.Text = "Starting download..." & Environment.NewLine
         Button1.Text = "STOP"
         temp02 = False
-        Button1.ForeColor = Color.DarkRed
+        Button1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#B2022F")
         Button2.Enabled = False
         Dim args As String = $"-f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -o ""%(artist)s - %(title)s.%(ext)s"" -P ""{TextBox2.Text}"" {TextBox1.Text}"
         Await Task.Run(Sub() RunProcessLive(args))
@@ -315,43 +313,43 @@ Public Class Form1
     End Sub
     Sub darkmode(mode As Boolean)
         If mode = True Then
-            MyBase.BackColor = Color.Black
+            MyBase.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
             Label3.ForeColor = Color.White
             Label4.ForeColor = Color.White
             CheckBox1.ForeColor = Color.White
-            Button1.BackColor = Color.Black
+            Button1.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
             Button1.ForeColor = Color.White
-            Button2.BackColor = Color.Black
+            Button2.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
             Button2.ForeColor = Color.White
-            Button3.BackColor = Color.Black
+            Button3.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
             Button3.ForeColor = Color.White
             TextBox1.ForeColor = Color.White
-            TextBox1.BackColor = Color.Black
+            TextBox1.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
             TextBox2.ForeColor = Color.White
-            TextBox2.BackColor = Color.Black
+            TextBox2.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
             RichTextBox1.ForeColor = Color.White
-            RichTextBox1.BackColor = Color.Black
+            RichTextBox1.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
             GroupBox1.ForeColor = Color.White
-            GroupBox1.BackColor = Color.Black
+            GroupBox1.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
         Else
-            MyBase.BackColor = Color.White
+            MyBase.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
             Label3.ForeColor = Color.Black
             Label4.ForeColor = Color.Black
             CheckBox1.ForeColor = Color.Black
-            Button1.BackColor = Color.White
+            Button1.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
             Button1.ForeColor = Color.Black
-            Button2.BackColor = Color.White
+            Button2.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
             Button2.ForeColor = Color.Black
-            Button3.BackColor = Color.White
+            Button3.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
             Button3.ForeColor = Color.Black
             TextBox1.ForeColor = Color.Black
-            TextBox1.BackColor = Color.White
+            TextBox1.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
             TextBox2.ForeColor = Color.Black
-            TextBox2.BackColor = Color.White
+            TextBox2.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
             RichTextBox1.ForeColor = Color.Black
-            RichTextBox1.BackColor = Color.White
+            RichTextBox1.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
             GroupBox1.ForeColor = Color.Black
-            GroupBox1.BackColor = Color.White
+            GroupBox1.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
         End If
     End Sub
 

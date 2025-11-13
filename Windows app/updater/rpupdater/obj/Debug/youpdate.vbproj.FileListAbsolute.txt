@@ -1,0 +1,16 @@
+C:\Users\peppe\source\repos\youpdate\rpupdater\bin\Debug\DotNetZip.dll
+C:\Users\peppe\source\repos\youpdate\rpupdater\bin\Debug\DotNetZip.pdb
+C:\Users\peppe\source\repos\youpdate\rpupdater\bin\Debug\DotNetZip.xml
+C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdate.vbproj.AssemblyReference.cache
+C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdate.vbproj.GenerateResource.cache
+C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdate.vbproj.CoreCompileInputs.cache
+C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdate.vbproj.Up2Date
+C:\Users\peppe\source\repos\youpdate\rpupdater\bin\Debug\youpdater.exe.config
+C:\Users\peppe\source\repos\youpdate\rpupdater\bin\Debug\youpdater.exe
+C:\Users\peppe\source\repos\youpdate\rpupdater\bin\Debug\youpdater.pdb
+C:\Users\peppe\source\repos\youpdate\rpupdater\bin\Debug\youpdater.xml
+C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdater.Form1.resources
+C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdater.Resources.resources
+C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdater.exe
+C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdater.xml
+C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdater.pdb

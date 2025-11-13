@@ -1,7 +1,7 @@
 ﻿Public Class settingspage
     Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
         If CheckBox3.Checked = True Then
-            MyBase.BackColor = Color.Black
+            MyBase.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
             CheckBox1.ForeColor = Color.White
             CheckBox2.ForeColor = Color.White
             CheckBox3.ForeColor = Color.White
@@ -9,10 +9,10 @@
             CheckBox5.ForeColor = Color.White
             Label1.ForeColor = Color.White
             Button1.ForeColor = Color.White
-            Button1.BackColor = Color.Black
+            Button1.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
             Form1.darkmode(True)
         Else
-            MyBase.BackColor = Color.White
+            MyBase.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
             CheckBox1.ForeColor = Color.Black
             CheckBox2.ForeColor = Color.Black
             CheckBox3.ForeColor = Color.Black
@@ -20,7 +20,7 @@
             CheckBox4.ForeColor = Color.Black
             CheckBox5.ForeColor = Color.Black
             Button1.ForeColor = Color.Black
-            Button1.BackColor = Color.White
+            Button1.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
             Form1.darkmode(False)
         End If
     End Sub

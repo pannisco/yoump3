@@ -1,0 +1,16 @@
+C:\Users\peppe\source\repos\rpupdater\rpupdater\bin\Debug\rpupdater.exe.config
+C:\Users\peppe\source\repos\rpupdater\rpupdater\bin\Debug\rpupdater.exe
+C:\Users\peppe\source\repos\rpupdater\rpupdater\bin\Debug\rpupdater.pdb
+C:\Users\peppe\source\repos\rpupdater\rpupdater\bin\Debug\rpupdater.xml
+C:\Users\peppe\source\repos\rpupdater\rpupdater\obj\Debug\rpupdater.vbproj.AssemblyReference.cache
+C:\Users\peppe\source\repos\rpupdater\rpupdater\obj\Debug\rpupdater.Form1.resources
+C:\Users\peppe\source\repos\rpupdater\rpupdater\obj\Debug\rpupdater.Resources.resources
+C:\Users\peppe\source\repos\rpupdater\rpupdater\obj\Debug\rpupdater.vbproj.GenerateResource.cache
+C:\Users\peppe\source\repos\rpupdater\rpupdater\obj\Debug\rpupdater.vbproj.CoreCompileInputs.cache
+C:\Users\peppe\source\repos\rpupdater\rpupdater\obj\Debug\rpupdater.exe
+C:\Users\peppe\source\repos\rpupdater\rpupdater\obj\Debug\rpupdater.xml
+C:\Users\peppe\source\repos\rpupdater\rpupdater\obj\Debug\rpupdater.pdb
+C:\Users\peppe\source\repos\rpupdater\rpupdater\bin\Debug\DotNetZip.dll
+C:\Users\peppe\source\repos\rpupdater\rpupdater\bin\Debug\DotNetZip.pdb
+C:\Users\peppe\source\repos\rpupdater\rpupdater\bin\Debug\DotNetZip.xml
+C:\Users\peppe\source\repos\rpupdater\rpupdater\obj\Debug\rpupdater.vbproj.CopyComplete

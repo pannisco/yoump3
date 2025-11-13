@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{2CA333F7-3868-45AB-BAD3-0C5D27BC0221}|yoump3\\yoump3.vbproj|solutionrelative:yoump3\\settingspage.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2CA333F7-3868-45AB-BAD3-0C5D27BC0221}|yoump3\\yoump3.vbproj|c:\\users\\peppe\\source\\repos\\yoump3\\yoump3\\settingspage.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{2CA333F7-3868-45AB-BAD3-0C5D27BC0221}|yoump3\\yoump3.vbproj|solutionrelative:yoump3\\settingspage.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2CA333F7-3868-45AB-BAD3-0C5D27BC0221}|yoump3\\yoump3.vbproj|c:\\users\\peppe\\source\\repos\\yoump3\\yoump3\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{2CA333F7-3868-45AB-BAD3-0C5D27BC0221}|yoump3\\yoump3.vbproj|solutionrelative:yoump3\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2CA333F7-3868-45AB-BAD3-0C5D27BC0221}|yoump3\\yoump3.vbproj|c:\\users\\peppe\\source\\repos\\yoump3\\yoump3\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{2CA333F7-3868-45AB-BAD3-0C5D27BC0221}|yoump3\\yoump3.vbproj|solutionrelative:yoump3\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2CA333F7-3868-45AB-BAD3-0C5D27BC0221}|yoump3\\yoump3.vbproj|c:\\users\\peppe\\source\\repos\\yoump3\\yoump3\\settingspage.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{2CA333F7-3868-45AB-BAD3-0C5D27BC0221}|yoump3\\yoump3.vbproj|solutionrelative:yoump3\\settingspage.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2CA333F7-3868-45AB-BAD3-0C5D27BC0221}|yoump3\\yoump3.vbproj|C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\my project\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
@@ -49,13 +49,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "settingspage.vb",
               "DocumentMoniker": "C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\settingspage.vb",
               "RelativeDocumentMoniker": "yoump3\\settingspage.vb",
-              "ToolTip": "C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\settingspage.vb",
-              "RelativeToolTip": "yoump3\\settingspage.vb",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAQwAsAAAArAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\settingspage.vb*",
+              "RelativeToolTip": "yoump3\\settingspage.vb*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-11-02T15:19:36.784Z",
               "EditorCaption": ""
@@ -66,28 +66,28 @@
               "Title": "settingspage.vb [Design]",
               "DocumentMoniker": "C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\settingspage.vb",
               "RelativeDocumentMoniker": "yoump3\\settingspage.vb",
-              "ToolTip": "C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\settingspage.vb [Design]",
-              "RelativeToolTip": "yoump3\\settingspage.vb [Design]",
+              "ToolTip": "C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\settingspage.vb [Design]*",
+              "RelativeToolTip": "yoump3\\settingspage.vb [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-11-02T14:33:34.362Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.vb",
               "DocumentMoniker": "C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\Form1.vb",
               "RelativeDocumentMoniker": "yoump3\\Form1.vb",
               "ToolTip": "C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\Form1.vb",
               "RelativeToolTip": "yoump3\\Form1.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAADsBAAAAAAAAAAAowEwBAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-11-01T14:08:54.279Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.vb [Design]",
               "DocumentMoniker": "C:\\Users\\peppe\\source\\repos\\yoump3\\yoump3\\Form1.vb",
               "RelativeDocumentMoniker": "yoump3\\Form1.vb",
