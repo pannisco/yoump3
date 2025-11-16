@@ -14,3 +14,4 @@ C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdater.Resources.res
 C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdater.exe
 C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdater.xml
 C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdater.pdb
+C:\Users\peppe\source\repos\youpdate\rpupdater\obj\Debug\youpdater.exe.config

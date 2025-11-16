@@ -182,7 +182,14 @@ Public Class Form1
                                                          MessageBoxIcon.Information)
                 If result = DialogResult.Yes Then
                     Try
-                        Process.Start(Path.Combine(Application.StartupPath, "youpdater.exe"))
+                        Dim startInfo As New ProcessStartInfo()
+                        With startInfo
+                            .FileName = Path.Combine(Application.StartupPath, "youpdater.exe")
+                            .CreateNoWindow = True
+                            .UseShellExecute = True
+                            .Verb = "runas"
+                        End With
+                        Process.Start(startInfo)
                         End
                     Catch ex As Exception
                         MessageBox.Show("Unable to open update: " & ex.Message)

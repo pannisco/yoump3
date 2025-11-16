@@ -30,7 +30,8 @@ Public Class Form1
             End Using
             File.Delete(zipPath)
             Process.Start(Path.Combine(Application.StartupPath, "yoump3.exe"))
-            MessageBox.Show("YouMP3 updated to version" & latestVersion & "!", "Update")
+            Me.Opacity = 0
+            MessageBox.Show("YouMP3 updated to version " & latestVersion & "!", "Update")
             End
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
@@ -41,7 +42,7 @@ Public Class Form1
         Try
             Dim client As New WebClient()
             Dim data As String = client.DownloadString(updateurl)
-            Dim remoteVersion As String = GetTagValue(data, "version")
+            latestVersion = GetTagValue(data, "version")
             Dim updateLink As String = GetTagValue(data, "link")
             Dim forceUpdate As Boolean = Boolean.Parse(GetTagValue(data, "forceupdate"))
             ProgressBar1.Value = 0
