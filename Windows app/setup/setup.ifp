@@ -4,7 +4,7 @@
   <Metadata productVersion="1.5.0" projectFileVersion="2.0"/>
   <ProductInformation>
     <Name>youMP3</Name>
-    <Version>1.1.3</Version>
+    <Version>1.1.3.1</Version>
     <CompanyName>Pannisco Software</CompanyName>
     <WebURI>https://github.com/pannisco/yoump3</WebURI>
   </ProductInformation>
@@ -31,10 +31,6 @@
       <VisualStyle isEnabled="true"/>
     </UserInterface>
     <InstallationFiles defaultInstallationPath="&lt;ProgramFiles&gt;\&lt;Company&gt;\&lt;AppName&gt;\" isDefaultInstallationPathAlterable ="true">
-      <InstallationFile size="N/A" type="[Folder]">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\runtimes</InstallationFile>
-      <InstallationFile size="461 KB" type="dll">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\DotNetZip.dll</InstallationFile>
-      <InstallationFile size="904.8 KB" type="xml">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\DotNetZip.xml</InstallationFile>
-      <InstallationFile size="410 Byte" type="json">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.deps.json</InstallationFile>
       <InstallationFile size="443 KB" type="dll">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.dll</InstallationFile>
       <InstallationFile size="1.5 KB" type="config">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.dll.config</InstallationFile>
       <InstallationFile size="214.5 KB" type="exe">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.exe</InstallationFile>
@@ -45,6 +41,10 @@
       <InstallationFile size="17.6 MB" type="exe">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yt-dlp.exe</InstallationFile>
       <InstallationFile size="N/A" type="[Folder]">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\_internal</InstallationFile>
       <InstallationFile size="N/A" type="[Folder]">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\ffmpeg</InstallationFile>
+      <InstallationFile size="N/A" type="[Folder]">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\runtimes</InstallationFile>
+      <InstallationFile size="461 KB" type="dll">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\DotNetZip.dll</InstallationFile>
+      <InstallationFile size="904.8 KB" type="xml">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\DotNetZip.xml</InstallationFile>
+      <InstallationFile size="410 Byte" type="json">C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.deps.json</InstallationFile>
     </InstallationFiles>
     <Languages>
       <Language>English</Language>

@@ -13,9 +13,9 @@ Public Class Form1
     Private temp As Boolean = True
     Private temp01 As Boolean = True
     Private temp02 As Boolean = True
-    Private Const appversion As String = "1.1.3"
+    Private Const appversion As String = "1.1.3.1"
     Private Const updateurl As String = "https://raw.githubusercontent.com/pannisco/yoump3/refs/heads/main/update.xml"
-    Private ffmpegdir As String = Path.Join(Application.StartupPath, "ffmpeg\")
+    Private ffmpegdir As String = Path.Join(Application.StartupPath, "ffmpeg")
     Private Async Sub Form1_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Dim args() As String = Environment.GetCommandLineArgs()
         If args.Length > 1 Then
