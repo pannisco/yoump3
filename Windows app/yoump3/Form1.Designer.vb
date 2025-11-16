@@ -23,7 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Label1 = New Label()
         Label2 = New Label()
         Button1 = New Button()
         TextBox1 = New TextBox()
@@ -40,19 +39,10 @@ Partial Class Form1
         GroupBox1.SuspendLayout()
         SuspendLayout()
         ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(10, 149)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(72, 20)
-        Label1.TabIndex = 0
-        Label1.Text = "Loading..."
-        ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(10, 122)
+        Label2.Location = New Point(6, 155)
         Label2.Name = "Label2"
         Label2.Size = New Size(72, 20)
         Label2.TabIndex = 1
@@ -116,7 +106,7 @@ Partial Class Form1
         RichTextBox1.Location = New Point(10, 19)
         RichTextBox1.Name = "RichTextBox1"
         RichTextBox1.ReadOnly = True
-        RichTextBox1.Size = New Size(259, 103)
+        RichTextBox1.Size = New Size(259, 133)
         RichTextBox1.TabIndex = 7
         RichTextBox1.Text = "*crickets*"
         ' 
@@ -133,13 +123,12 @@ Partial Class Form1
         ' 
         GroupBox1.Controls.Add(RichTextBox1)
         GroupBox1.Controls.Add(Label2)
-        GroupBox1.Controls.Add(Label1)
         GroupBox1.Location = New Point(249, 8)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Size = New Size(275, 179)
         GroupBox1.TabIndex = 10
         GroupBox1.TabStop = False
-        GroupBox1.Text = "LOG:"
+        GroupBox1.Text = "LOG"
         ' 
         ' CheckBox1
         ' 
@@ -197,8 +186,6 @@ Partial Class Form1
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBox1 As TextBox

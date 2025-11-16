@@ -63,7 +63,7 @@ Partial Class settingspage
         Label1.Name = "Label1"
         Label1.Size = New Size(90, 20)
         Label1.TabIndex = 2
-        Label1.Text = "Version 1.1.2"
+        Label1.Text = "Version 1.1.3"
         ' 
         ' CheckBox3
         ' 

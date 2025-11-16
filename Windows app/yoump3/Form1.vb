@@ -1,17 +1,21 @@
 ﻿Imports System.Diagnostics
+Imports System.Drawing
 Imports System.IO
+Imports System.IO.Pipes
+Imports System.Net
 Imports System.Security.Policy
+Imports System.Text
+Imports System.Text.RegularExpressions
+Imports System.Threading
 Imports System.Threading.Tasks
 Imports System.Xml
-Imports System.Net
-Imports System.Text.RegularExpressions
-Imports System.Drawing
 Public Class Form1
     Private temp As Boolean = True
     Private temp01 As Boolean = True
     Private temp02 As Boolean = True
-    Private Const appversion As String = "1.1.2"
+    Private Const appversion As String = "1.1.3"
     Private Const updateurl As String = "https://raw.githubusercontent.com/pannisco/yoump3/refs/heads/main/update.xml"
+    Private ffmpegdir As String = Path.Join(Application.StartupPath, "ffmpeg\")
     Private Async Sub Form1_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Dim args() As String = Environment.GetCommandLineArgs()
         If args.Length > 1 Then
@@ -23,36 +27,7 @@ Public Class Form1
                 download()
             End If
         End If
-        Await Task.Delay(500)
-        Await CheckFFMPEGAsync()
-        Await CheckYTDLPAsync()
     End Sub
-
-    Private Async Function CheckFFMPEGAsync() As Task
-        Try
-            Dim proc As New Process()
-            proc.StartInfo.FileName = "ffmpeg"
-            proc.StartInfo.Arguments = "-version"
-            proc.StartInfo.RedirectStandardOutput = True
-            proc.StartInfo.RedirectStandardError = True
-            proc.StartInfo.UseShellExecute = False
-            proc.StartInfo.CreateNoWindow = True
-            proc.Start()
-            Dim output As String = Await proc.StandardOutput.ReadToEndAsync()
-            proc.WaitForExit()
-            If output.ToLower().Contains("ffmpeg version") Then
-                Label1.Text = "ffmpeg installed."
-                Label1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#24562B")
-            Else
-                Label1.Text = "ffmpeg not installed."
-                Label1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#B2022F")
-            End If
-        Catch ex As Exception
-            Label1.Text = "ffmpeg not installed."
-            Label1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#B2022F")
-        End Try
-    End Function
-
     Private Async Function CheckYTDLPAsync() As Task
         If My.Settings.autoupdate = True Then
             Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F9C70C")
@@ -73,23 +48,23 @@ Public Class Form1
             proc.Start()
             Dim output As String = proc.StandardOutput.ReadToEnd() & proc.StandardError.ReadToEnd()
             If output.Contains("up to date") Then
-                Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#24562B")
+                Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#287233")
                 Label2.Text = "ytdlp is up to date."
                 Button1.Enabled = True
                 Button2.Enabled = True
             Else
-                Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F9C70C")
+                Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#AEA04B")
                 Label2.Text = "Updating ytdlp, please whait..."
             End If
             proc.WaitForExit()
-            Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#24562B")
+            Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#287233")
             Label2.Text = "Done!"
             Threading.Thread.Sleep(2000)
             Label2.Text = "ytdlp is up to date."
             Button1.Enabled = True
             Button2.Enabled = True
         Else
-            Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#F9C70C")
+            Label2.ForeColor = System.Drawing.ColorTranslator.FromHtml("#AEA04B")
             Label2.Text = "Auto update disabled"
             Button1.Enabled = True
             Button2.Enabled = True
@@ -182,7 +157,7 @@ Public Class Form1
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then
-            Me.Size = New Size(543, 243)
+            Me.Size = New Size(554, 243)
         Else
             Me.Size = New Size(258, 243)
         End If
@@ -257,7 +232,7 @@ Public Class Form1
         temp02 = False
         Button1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#B2022F")
         Button2.Enabled = False
-        Dim args As String = $"-f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -o ""%(artist)s - %(title)s.%(ext)s"" -P ""{TextBox2.Text}"" {TextBox1.Text}"
+        Dim args As String = $"-f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -o ""%(artist)s - %(title)s.%(ext)s"" -P ""{TextBox2.Text}"" --ffmpeg-location {ffmpegdir} {TextBox1.Text}"
         Await Task.Run(Sub() RunProcessLive(args))
         RichTextBox1.Text = "Download finished." & Environment.NewLine
         Button1.Text = "Done!"
@@ -271,7 +246,9 @@ Public Class Form1
             Button1.ForeColor = Color.Black
         End If
         TextBox1.Text = "URL"
-        TextBox2.Text = "Download Path"
+        If My.Settings.saveoptions = False Then
+            TextBox2.Text = "Download Path"
+        End If
         temp = True
         temp01 = True
         Label4.Text = "0/0"
@@ -280,7 +257,7 @@ Public Class Form1
             Application.Exit()
         End If
     End Sub
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Async Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Opacity = 0
         darkmode(My.Settings.darkmode)
         If My.Settings.saveoptions = True Then
@@ -288,6 +265,8 @@ Public Class Form1
             CheckBox1.Checked = My.Settings.option2
         End If
         MyBase.TopMost = My.Settings.aot
+        Await Task.Delay(500)
+        Await CheckYTDLPAsync()
         CheckForUpdate()
     End Sub
     Sub reloadsettings()
