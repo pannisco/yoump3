@@ -13,9 +13,9 @@ Public Class Form1
     Private temp As Boolean = True
     Private temp01 As Boolean = True
     Private temp02 As Boolean = True
-    Private Const appversion As String = "1.1.3.1"
+    Private Const appversion As String = "1.1.5"
     Private Const updateurl As String = "https://raw.githubusercontent.com/pannisco/yoump3/refs/heads/main/update.xml"
-    Private ffmpegdir As String = Path.Join(Application.StartupPath, "ffmpeg")
+    Private ffmpegdir As String = Path.Join(Application.StartupPath, "ffmpeg").ToString()
     Private Async Sub Form1_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         Dim args() As String = Environment.GetCommandLineArgs()
         If args.Length > 1 Then
@@ -99,7 +99,7 @@ Public Class Form1
             Button1.Text = "Download"
             Button1.ForeColor = Color.Black
             TextBox1.Text = "URL"
-            TextBox1.Text = "Download Path"
+            TextBox2.Text = "Download Path"
             temp = True
             temp01 = True
             Label4.Text = "0/0"
@@ -239,7 +239,8 @@ Public Class Form1
         temp02 = False
         Button1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#B2022F")
         Button2.Enabled = False
-        Dim args As String = $"-f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -o ""%(artist)s - %(title)s.%(ext)s"" -P ""{TextBox2.Text}"" --ffmpeg-location {ffmpegdir} {TextBox1.Text}"
+        Dim args As String = $"-f bestaudio --extract-audio --ffmpeg-location ""{ffmpegdir}"" --audio-format mp3 --audio-quality 0 --embed-thumbnail --add-metadata -o ""%(artist)s - %(title)s.%(ext)s"" -P ""{TextBox2.Text}"" {TextBox1.Text}"
+        Console.Write(args)
         Await Task.Run(Sub() RunProcessLive(args))
         RichTextBox1.Text = "Download finished." & Environment.NewLine
         Button1.Text = "Done!"
@@ -253,11 +254,9 @@ Public Class Form1
             Button1.ForeColor = Color.Black
         End If
         TextBox1.Text = "URL"
-        If My.Settings.saveoptions = False Then
-            TextBox2.Text = "Download Path"
-        End If
         temp = True
         temp01 = True
+        temp02 = True
         Label4.Text = "0/0"
         MessageBox.Show("Download completed!", "YouMP3", MessageBoxButtons.OK, MessageBoxIcon.Information)
         If My.Settings.ac = True Then

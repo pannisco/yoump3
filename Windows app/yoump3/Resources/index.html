@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="send('BUTTON_1')">Invia Segnale</button><br><br>
+    <input type="text" id="txt"><button onclick="send(document.getElementById('txt').value)">Invia Testo</button>
+
+    <script>
+    async function send(data){
+        await fetch('/sendSignal', {
+            method:'POST',
+            body: data
+        });
+    }
+
+    async function update(){
+        let r = await fetch('/getStatus');
+        let d = await r.text();
+        console.log("Ricevuto dal server:", d);
+    }
+
+    setInterval(update, 1000);
+    </script>
+</body>
+</html>
