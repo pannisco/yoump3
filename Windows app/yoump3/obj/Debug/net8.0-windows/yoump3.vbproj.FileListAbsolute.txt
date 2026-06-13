@@ -17,12 +17,11 @@ C:\Users\peppe\source\repos\yoump3\yoump3\obj\Debug\net8.0-windows\ref\yoump3.dl
 C:\Users\peppe\source\repos\yoump3\yoump3\obj\Debug\net8.0-windows\yoump3.Resources.resources
 C:\Users\peppe\source\repos\yoump3\yoump3\bin\Debug\net8.0-windows\yoump3.dll.config
 C:\Users\peppe\source\repos\yoump3\yoump3\obj\Debug\net8.0-windows\yoump3.settingspage.resources
+C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\bin\Debug\net8.0-windows\yoump3.dll
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\bin\Debug\net8.0-windows\yoump3.exe
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\bin\Debug\net8.0-windows\yoump3.dll.config
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\bin\Debug\net8.0-windows\yoump3.deps.json
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\bin\Debug\net8.0-windows\yoump3.runtimeconfig.json
-C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\bin\Debug\net8.0-windows\yoump3.dll
-C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\bin\Debug\net8.0-windows\yoump3.pdb
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\obj\Debug\net8.0-windows\yoump3.Form1.resources
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\obj\Debug\net8.0-windows\yoump3.Resources.resources
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\obj\Debug\net8.0-windows\yoump3.settingspage.resources
@@ -36,4 +35,8 @@ C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\obj\Debug\net8.0-windo
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\obj\Debug\net8.0-windows\refint\yoump3.dll
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\obj\Debug\net8.0-windows\yoump3.pdb
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\obj\Debug\net8.0-windows\yoump3.genruntimeconfig.cache
+C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\bin\Debug\net8.0-windows\yoump3.pdb
 C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\obj\Debug\net8.0-windows\ref\yoump3.dll
+C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\bin\Debug\net8.0-windows\QRCoder.dll
+C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\obj\Debug\net8.0-windows\yoump3.vbproj.AssemblyReference.cache
+C:\Users\Peppe\Documents\GitHub\yoump3\Windows app\yoump3\obj\Debug\net8.0-windows\yoump3.vbproj.Up2Date

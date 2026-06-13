@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "J2YVWQQBzOI=",
+  "dgSpecHash": "Cg9go8nrJbg=",
   "success": true,
   "projectFilePath": "C:\\Users\\Peppe\\Documents\\GitHub\\yoump3\\Windows app\\yoump3\\yoump3.vbproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Peppe\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Peppe\\.nuget\\packages\\qrcoder\\1.8.0\\qrcoder.1.8.0.nupkg.sha512",
+    "C:\\Users\\Peppe\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

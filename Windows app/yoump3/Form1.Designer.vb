@@ -23,7 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Label2 = New Label()
         Button1 = New Button()
         TextBox1 = New TextBox()
         FolderBrowserDialog1 = New FolderBrowserDialog()
@@ -32,49 +31,47 @@ Partial Class Form1
         Label3 = New Label()
         RichTextBox1 = New RichTextBox()
         Label4 = New Label()
-        GroupBox1 = New GroupBox()
         CheckBox1 = New CheckBox()
         Button3 = New Button()
         ProgressBar1 = New ProgressBar()
-        GroupBox1.SuspendLayout()
         SuspendLayout()
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Location = New Point(6, 155)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(72, 20)
-        Label2.TabIndex = 1
-        Label2.Text = "Loading..."
         ' 
         ' Button1
         ' 
-        Button1.BackColor = Color.Transparent
-        Button1.Enabled = False
+        Button1.BackColor = Color.Red
+        Button1.FlatAppearance.BorderColor = Color.Black
+        Button1.FlatAppearance.BorderSize = 2
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button1.Location = New Point(13, 101)
+        Button1.Font = New Font("Google Sans", 9.999999F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button1.ForeColor = Color.White
+        Button1.Location = New Point(436, 12)
+        Button1.Margin = New Padding(4, 7, 4, 7)
         Button1.Name = "Button1"
-        Button1.Size = New Size(215, 29)
+        Button1.Size = New Size(141, 48)
         Button1.TabIndex = 2
         Button1.Text = "Download"
         Button1.UseVisualStyleBackColor = False
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(12, 12)
+        TextBox1.Font = New Font("Google Sans", 8F)
+        TextBox1.Location = New Point(57, 14)
+        TextBox1.Margin = New Padding(4, 7, 4, 7)
+        TextBox1.Multiline = True
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(180, 27)
+        TextBox1.Size = New Size(371, 41)
         TextBox1.TabIndex = 3
         TextBox1.Text = "URL"
         TextBox1.TextAlign = HorizontalAlignment.Center
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(12, 45)
+        TextBox2.Font = New Font("Google Sans", 8F)
+        TextBox2.Location = New Point(13, 416)
+        TextBox2.Margin = New Padding(4, 7, 4, 7)
+        TextBox2.Multiline = True
         TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(180, 27)
+        TextBox2.Size = New Size(514, 38)
         TextBox2.TabIndex = 4
         TextBox2.Text = "Download Path"
         TextBox2.TextAlign = HorizontalAlignment.Center
@@ -83,60 +80,55 @@ Partial Class Form1
         ' 
         Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), Image)
         Button2.BackgroundImageLayout = ImageLayout.Zoom
-        Button2.Enabled = False
+        Button2.FlatAppearance.BorderSize = 0
         Button2.FlatStyle = FlatStyle.Flat
-        Button2.Location = New Point(198, 45)
+        Button2.Location = New Point(541, 408)
+        Button2.Margin = New Padding(4, 7, 4, 7)
         Button2.Name = "Button2"
-        Button2.Size = New Size(30, 27)
+        Button2.Size = New Size(38, 58)
         Button2.TabIndex = 5
         Button2.UseVisualStyleBackColor = True
         ' 
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label3.Location = New Point(8, 163)
+        Label3.Font = New Font("Google Sans", 8F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label3.Location = New Point(13, 461)
+        Label3.Margin = New Padding(4, 0, 4, 0)
         Label3.Name = "Label3"
-        Label3.Size = New Size(184, 20)
+        Label3.Size = New Size(219, 38)
         Label3.TabIndex = 6
         Label3.Text = "Made by Pannisco Software"
         ' 
         ' RichTextBox1
         ' 
-        RichTextBox1.Location = New Point(10, 19)
+        RichTextBox1.Location = New Point(13, 71)
+        RichTextBox1.Margin = New Padding(4, 7, 4, 7)
         RichTextBox1.Name = "RichTextBox1"
         RichTextBox1.ReadOnly = True
-        RichTextBox1.Size = New Size(259, 133)
+        RichTextBox1.Size = New Size(564, 281)
         RichTextBox1.TabIndex = 7
         RichTextBox1.Text = "*crickets*"
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(198, 78)
+        Label4.Font = New Font("Google Sans", 8F)
+        Label4.Location = New Point(535, 366)
+        Label4.Margin = New Padding(4, 0, 4, 0)
         Label4.Name = "Label4"
-        Label4.Size = New Size(31, 20)
+        Label4.Size = New Size(42, 38)
         Label4.TabIndex = 8
         Label4.Text = "0/0"
-        ' 
-        ' GroupBox1
-        ' 
-        GroupBox1.Controls.Add(RichTextBox1)
-        GroupBox1.Controls.Add(Label2)
-        GroupBox1.Location = New Point(249, 8)
-        GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(275, 179)
-        GroupBox1.TabIndex = 10
-        GroupBox1.TabStop = False
-        GroupBox1.Text = "LOG"
         ' 
         ' CheckBox1
         ' 
         CheckBox1.AutoSize = True
-        CheckBox1.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        CheckBox1.Location = New Point(171, 136)
+        CheckBox1.Font = New Font("Google Sans", 8F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        CheckBox1.Location = New Point(164, 276)
+        CheckBox1.Margin = New Padding(4, 7, 4, 7)
         CheckBox1.Name = "CheckBox1"
-        CheckBox1.Size = New Size(59, 24)
+        CheckBox1.Size = New Size(76, 42)
         CheckBox1.TabIndex = 11
         CheckBox1.Text = "LOG"
         CheckBox1.UseVisualStyleBackColor = True
@@ -145,48 +137,50 @@ Partial Class Form1
         ' 
         Button3.BackgroundImage = CType(resources.GetObject("Button3.BackgroundImage"), Image)
         Button3.BackgroundImageLayout = ImageLayout.Zoom
+        Button3.FlatAppearance.BorderSize = 0
         Button3.FlatStyle = FlatStyle.Flat
-        Button3.Location = New Point(198, 12)
+        Button3.Location = New Point(13, 6)
+        Button3.Margin = New Padding(4, 7, 4, 7)
         Button3.Name = "Button3"
-        Button3.Size = New Size(29, 27)
+        Button3.Size = New Size(36, 58)
         Button3.TabIndex = 12
         Button3.UseVisualStyleBackColor = True
         ' 
         ' ProgressBar1
         ' 
-        ProgressBar1.Location = New Point(12, 78)
+        ProgressBar1.Location = New Point(13, 366)
+        ProgressBar1.Margin = New Padding(4, 7, 4, 7)
         ProgressBar1.Name = "ProgressBar1"
-        ProgressBar1.Size = New Size(180, 17)
+        ProgressBar1.Size = New Size(514, 36)
         ProgressBar1.TabIndex = 13
         ' 
         ' Form1
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(10F, 43F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(236, 192)
+        ClientSize = New Size(590, 495)
+        Controls.Add(RichTextBox1)
         Controls.Add(ProgressBar1)
         Controls.Add(Button3)
         Controls.Add(CheckBox1)
-        Controls.Add(GroupBox1)
         Controls.Add(Label4)
         Controls.Add(Label3)
         Controls.Add(Button2)
         Controls.Add(TextBox2)
         Controls.Add(TextBox1)
         Controls.Add(Button1)
+        Font = New Font("Google Sans", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         FormBorderStyle = FormBorderStyle.Fixed3D
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Margin = New Padding(4, 7, 4, 7)
         MaximizeBox = False
         MinimizeBox = False
         Name = "Form1"
         Text = "YouMP3"
         TopMost = True
-        GroupBox1.ResumeLayout(False)
-        GroupBox1.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
-    Friend WithEvents Label2 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
@@ -195,7 +189,6 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents Button3 As Button
     Friend WithEvents ProgressBar1 As ProgressBar
