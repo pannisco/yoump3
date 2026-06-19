@@ -18,7 +18,6 @@ Public Class settingspage
     Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
         If CheckBox3.Checked = True Then
             MyBase.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
-            Button2.BackgroundImage = My.Resources.update_30dp_FFFFFF_FILL0_wght400_GRAD0_opsz24
             CheckBox2.ForeColor = Color.White
             CheckBox3.ForeColor = Color.White
             CheckBox4.ForeColor = Color.White
@@ -26,6 +25,7 @@ Public Class settingspage
             CheckBox1.ForeColor = Color.White
             Label1.ForeColor = Color.White
             Label3.ForeColor = Color.White
+            Label4.ForeColor = Color.White
             GroupBox1.ForeColor = Color.White
             Label2.ForeColor = Color.White
             Button1.ForeColor = Color.White
@@ -33,13 +33,13 @@ Public Class settingspage
             Form1.darkmode(True)
         Else
             MyBase.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
-            Button2.BackgroundImage = My.Resources.update_30dp_000000_FILL0_wght400_GRAD0_opsz24
             CheckBox2.ForeColor = Color.Black
             CheckBox3.ForeColor = Color.Black
             Label1.ForeColor = Color.Black
             Label2.ForeColor = Color.Black
             GroupBox1.ForeColor = Color.Black
             Label3.ForeColor = Color.Black
+            Label4.ForeColor = Color.Black
             CheckBox4.ForeColor = Color.Black
             CheckBox5.ForeColor = Color.Black
             CheckBox1.ForeColor = Color.Black
@@ -139,7 +139,7 @@ Public Class settingspage
     End Sub
     Public Function GenerateQRCode() As Bitmap
         Using qrGenerator As New QRCodeGenerator()
-            Using qrCodeData As QRCodeData = qrGenerator.CreateQrCode("http://{ip}:{WebServer.Port}", QRCodeGenerator.ECCLevel.Q)
+            Using qrCodeData As QRCodeData = qrGenerator.CreateQrCode($"http://{Label3.Text}", QRCodeGenerator.ECCLevel.Q)
                 Using qrCode As New QRCode(qrCodeData)
                     Dim qrCodeImage As Bitmap = qrCode.GetGraphic(20)
                     Return New Bitmap(qrCodeImage)
@@ -153,14 +153,16 @@ Public Class settingspage
         If PictureBox1.Image IsNot Nothing Then
             PictureBox1.Image.Dispose()
         End If
-        PictureBox1.Image = GenerateQRCode()
         If CheckBox1.Checked Then
             Label3.Text = selecteditem.IP + ":47891"
         End If
+        PictureBox1.Image = GenerateQRCode()
+        PictureBox1.Enabled = CheckBox1.Enabled
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         ComboBox1.Enabled = CheckBox1.Checked
+        PictureBox1.Visible = CheckBox1.Checked
         If CheckBox1.Checked Then
             Dim selectedIP As String = "127.0.0.1"
             If ComboBox1.SelectedItem IsNot Nothing Then
@@ -192,4 +194,5 @@ Public Class settingspage
             End If
         Next
     End Sub
+
 End Class

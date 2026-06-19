@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("yoump3"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+602dad8bb7d223531baea9e5950d4aa9edde8a1a"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63548f6448e243199c65b4f0846cd065ea4c547b"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("yoump3"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("yoump3"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

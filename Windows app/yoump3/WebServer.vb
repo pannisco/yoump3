@@ -144,13 +144,14 @@ Public Class WebServer
             Return
         End If
         ' Scrive variabili condivise, il timer su UI thread le legge
-        Form1.PendingDownloadUrl = url
+        Form1.TextBox2.Text = url
         Form1.PendingDownloadPath = dlPath
+        Form1.download()
         SendJSON(res, $"{{""ok"":true}}")
     End Sub
 
     Private Sub HandleStop(res As HttpListenerResponse)
-        Form1.PendingStop = True
+        Form1.stopdwld()
         SendJSON(res, $"{{""ok"":true}}")
     End Sub
 

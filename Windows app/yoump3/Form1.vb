@@ -12,23 +12,20 @@ Public Class Form1
     Private temp01 As Boolean = True
     Private temp02 As Boolean = True
     Public WebSrv As New WebServer()
-    Public Const appversion As String = "1.2"
+    Public Const appversion As String = "1.2.6"
     Private Const updateurl As String = "https://raw.githubusercontent.com/pannisco/yoump3/refs/heads/main/update.xml"
     Private ffmpegdir As String = Path.Join(Application.StartupPath, "ffmpeg").ToString()
     Public IsDownloading As Boolean = False
     Public CurrentLog As String = ""
     Public CurrentProgress As String = "0/0"
     Public CurrentDownloadPath As String = ""
-    Public PendingDownloadUrl As String = ""
     Public PendingDownloadPath As String = ""
-    Public PendingStop As Boolean = False
 
     ' ── Form Load / Shown ────────────────────────────────────────────────────
     Private Async Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         darkmode(My.Settings.darkmode)
         If My.Settings.saveoptions = True Then
             TextBox2.Text = My.Settings.option1
-            CheckBox1.Checked = My.Settings.option2
         End If
         ' Inizializza CurrentDownloadPath subito
         If My.Settings.option1 <> "" Then
@@ -39,10 +36,6 @@ Public Class Form1
             WebSrv.Start(ip)
         End If
         MyBase.TopMost = My.Settings.aot
-        Dim webTimer As New System.Windows.Forms.Timer()
-        webTimer.Interval = 500
-        AddHandler webTimer.Tick, AddressOf WebTimerTick
-        webTimer.Start()
         Await Task.Delay(500)
         Task.Run(Sub() Getver())
         CheckForUpdate()
@@ -64,7 +57,6 @@ Public Class Form1
     Private Sub Form1_Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
         If My.Settings.saveoptions = True Then
             My.Settings.option1 = TextBox2.Text
-            My.Settings.option2 = CheckBox1.Checked
         End If
         WebSrv.Stop()
         Application.Exit()
@@ -91,24 +83,27 @@ Public Class Form1
         End If
     End Sub
 
+    Sub stopdwld()
+        For Each proc As Process In Process.GetProcessesByName("yt-dlp")
+            proc.Kill()
+        Next
+        temp02 = True
+        Button1.Text = "Download"
+        TextBox1.Text = "URL"
+        TextBox2.Text = "Download Path"
+        temp = True
+        temp01 = True
+        Label4.Text = "0/0"
+        IsDownloading = False
+        CurrentLog = ""
+        CurrentProgress = "0/0"
+        Button1.Enabled = True
+        Button2.Enabled = True
+    End Sub
     ' ── Buttons ──────────────────────────────────────────────────────────────
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If temp02 = False Then
-            For Each proc As Process In Process.GetProcessesByName("yt-dlp")
-                proc.Kill()
-            Next
-            temp02 = True
-            Button1.Text = "Download"
-            TextBox1.Text = "URL"
-            TextBox2.Text = "Download Path"
-            temp = True
-            temp01 = True
-            Label4.Text = "0/0"
-            IsDownloading = False
-            CurrentLog = ""
-            CurrentProgress = "0/0"
-            Button1.Enabled = True
-            Button2.Enabled = True
+            stopdwld()
         Else
             If TextBox1.Text = "" Or TextBox1.Text = "URL" Or TextBox2.Text = "" Or TextBox2.Text = "Download Path" Then
                 MessageBox.Show("Please fill all requests.")
@@ -130,17 +125,9 @@ Public Class Form1
         settingspage.Show()
     End Sub
 
-    ' ── CheckBox ─────────────────────────────────────────────────────────────
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-        If CheckBox1.Checked = True Then
-            Me.Size = New Size(554, 243)
-        Else
-            Me.Size = New Size(258, 243)
-        End If
-    End Sub
 
     ' ── Download core ────────────────────────────────────────────────────────
-    Private Async Sub download()
+    Async Sub download()
         ' Cattura subito i valori — prima di qualsiasi await
         Dim urlToDownload As String = TextBox1.Text
         Dim pathToDownload As String = TextBox2.Text
@@ -194,20 +181,24 @@ Public Class Form1
         proc.StartInfo.CreateNoWindow = True
         AddHandler proc.OutputDataReceived, Sub(s, e)
                                                 If e.Data IsNot Nothing Then
-                                                    Invoke(Sub()
-                                                               RichTextBox1.Text = e.Data
-                                                               CurrentLog = e.Data
-                                                           End Sub)
+                                                    CurrentLog = e.Data
                                                     UpdateDownloadCount(e.Data)
+                                                    If Me.IsHandleCreated Then
+                                                        Invoke(Sub()
+                                                                   RichTextBox1.Text = e.Data
+                                                               End Sub)
+                                                    End If
                                                 End If
                                             End Sub
         AddHandler proc.ErrorDataReceived, Sub(s, e)
                                                If e.Data IsNot Nothing Then
-                                                   Invoke(Sub()
-                                                              RichTextBox1.Text = e.Data
-                                                              CurrentLog = e.Data
-                                                          End Sub)
+                                                   CurrentLog = e.Data
                                                    UpdateDownloadCount(e.Data)
+                                                   If Me.IsHandleCreated Then
+                                                       Invoke(Sub()
+                                                                  RichTextBox1.Text = e.Data
+                                                              End Sub)
+                                                   End If
                                                End If
                                            End Sub
         proc.Start()
@@ -221,10 +212,12 @@ Public Class Form1
         If match.Success Then
             Dim current = Integer.Parse(match.Groups(2).Value)
             Dim total = Integer.Parse(match.Groups(3).Value)
-            Invoke(Sub()
-                       Label4.Text = $"{current}/{total}"
-                       CurrentProgress = $"{current}/{total}"
-                   End Sub)
+            CurrentProgress = $"{current}/{total}"
+            If Me.IsHandleCreated Then
+                Invoke(Sub()
+                           Label4.Text = CurrentProgress
+                       End Sub)
+            End If
         End If
     End Sub
 
@@ -279,20 +272,6 @@ Public Class Form1
         Button2.Enabled = True
     End Sub
 
-    ' ── Web timer ────────────────────────────────────────────────────────────
-    Private Sub WebTimerTick(sender As Object, e As EventArgs)
-        If PendingStop Then
-            PendingStop = False
-            StopDownloadFromWeb()
-        End If
-        If PendingDownloadUrl <> "" Then
-            Dim url = PendingDownloadUrl
-            Dim path = PendingDownloadPath
-            PendingDownloadUrl = ""
-            PendingDownloadPath = ""
-            StartDownloadFromWeb(url, path)
-        End If
-    End Sub
 
     ' ── Update ───────────────────────────────────────────────────────────────
     Public Sub CheckForUpdate()
@@ -381,9 +360,7 @@ Public Class Form1
     Sub darkmode(mode As Boolean)
         If mode = True Then
             MyBase.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
-            Label3.ForeColor = Color.White
             Label4.ForeColor = Color.White
-            CheckBox1.ForeColor = Color.White
             Button2.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
             Button2.ForeColor = Color.White
             Button3.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
@@ -396,9 +373,7 @@ Public Class Form1
             RichTextBox1.BackColor = System.Drawing.ColorTranslator.FromHtml("#28282B")
         Else
             MyBase.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
-            Label3.ForeColor = Color.Black
             Label4.ForeColor = Color.Black
-            CheckBox1.ForeColor = Color.Black
             Button2.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
             Button2.ForeColor = Color.Black
             Button3.BackColor = System.Drawing.ColorTranslator.FromHtml("#F2F3F4")
@@ -430,7 +405,7 @@ Public Class Form1
     End Sub
 
     ' ── Label link ───────────────────────────────────────────────────────────
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+    Private Sub Label3_Click(sender As Object, e As EventArgs)
         Try
             Process.Start(New ProcessStartInfo With {
                 .FileName = "https://github.com/pannisco/yoump3",

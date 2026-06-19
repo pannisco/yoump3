@@ -36,6 +36,7 @@ Partial Class settingspage
         GroupBox1 = New GroupBox()
         PictureBox1 = New PictureBox()
         Label3 = New Label()
+        Label4 = New Label()
         GroupBox1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -56,12 +57,12 @@ Partial Class settingspage
         Label1.AutoSize = True
         Label1.FlatStyle = FlatStyle.Flat
         Label1.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
-        Label1.Location = New Point(16, 242)
+        Label1.Location = New Point(16, 297)
         Label1.Margin = New Padding(4, 0, 4, 0)
         Label1.Name = "Label1"
         Label1.Size = New Size(151, 25)
         Label1.TabIndex = 2
-        Label1.Text = "App version: 1.1.5"
+        Label1.Text = "App version: 1.2.6"
         ' 
         ' CheckBox3
         ' 
@@ -101,7 +102,7 @@ Partial Class settingspage
         ' Button1
         ' 
         Button1.FlatStyle = FlatStyle.Flat
-        Button1.Location = New Point(16, 192)
+        Button1.Location = New Point(15, 170)
         Button1.Margin = New Padding(4, 7, 4, 7)
         Button1.Name = "Button1"
         Button1.Size = New Size(252, 43)
@@ -112,7 +113,8 @@ Partial Class settingspage
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(16, 267)
+        Label2.Font = New Font("Google Sans", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(12, 269)
         Label2.Name = "Label2"
         Label2.Size = New Size(135, 43)
         Label2.TabIndex = 7
@@ -120,16 +122,16 @@ Partial Class settingspage
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.Gainsboro
-        Button2.BackgroundImage = My.Resources.Resources.update_30dp_000000_FILL0_wght400_GRAD0_opsz24
+        Button2.BackColor = Color.Red
         Button2.BackgroundImageLayout = ImageLayout.Zoom
         Button2.FlatAppearance.BorderColor = Color.Black
         Button2.FlatStyle = FlatStyle.Flat
         Button2.ForeColor = Color.Transparent
-        Button2.Location = New Point(21, 296)
+        Button2.Location = New Point(16, 223)
         Button2.Name = "Button2"
-        Button2.Size = New Size(34, 33)
+        Button2.Size = New Size(251, 43)
         Button2.TabIndex = 8
+        Button2.Text = "Update YTDLP"
         Button2.UseVisualStyleBackColor = False
         ' 
         ' CheckBox1
@@ -159,18 +161,17 @@ Partial Class settingspage
         GroupBox1.Controls.Add(CheckBox1)
         GroupBox1.Location = New Point(284, 11)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(249, 385)
+        GroupBox1.Size = New Size(249, 342)
         GroupBox1.TabIndex = 11
         GroupBox1.TabStop = False
-        GroupBox1.Text = "Web manage"
-        GroupBox1.Visible = False
+        GroupBox1.Text = "Web manager"
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.Location = New Point(27, 155)
+        PictureBox1.Location = New Point(27, 159)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(194, 177)
-        PictureBox1.SizeMode = PictureBoxSizeMode.AutoSize
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 12
         PictureBox1.TabStop = False
         ' 
@@ -183,12 +184,25 @@ Partial Class settingspage
         Label3.TabIndex = 11
         Label3.Text = "Disabled"
         ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Font = New Font("Google Sans", 8F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
+        Label4.Location = New Point(12, 332)
+        Label4.Margin = New Padding(4, 0, 4, 0)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(219, 38)
+        Label4.TabIndex = 12
+        Label4.Text = "Made by Pannisco Software"
+        ' 
         ' settingspage
         ' 
-        AutoScaleDimensions = New SizeF(10F, 43F)
-        AutoScaleMode = AutoScaleMode.Font
+        AutoScaleDimensions = New SizeF(144F, 144F)
+        AutoScaleMode = AutoScaleMode.Dpi
         BackColor = Color.White
-        ClientSize = New Size(282, 338)
+        ClientSize = New Size(281, 365)
+        Controls.Add(Label1)
+        Controls.Add(Label4)
         Controls.Add(GroupBox1)
         Controls.Add(Button2)
         Controls.Add(Label2)
@@ -196,7 +210,6 @@ Partial Class settingspage
         Controls.Add(CheckBox5)
         Controls.Add(CheckBox4)
         Controls.Add(CheckBox3)
-        Controls.Add(Label1)
         Controls.Add(CheckBox2)
         Font = New Font("Google Sans", 9F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         FormBorderStyle = FormBorderStyle.Fixed3D
@@ -226,4 +239,5 @@ Partial Class settingspage
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label3 As Label
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label4 As Label
 End Class
